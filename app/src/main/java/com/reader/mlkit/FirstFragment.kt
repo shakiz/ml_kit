@@ -5,6 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import com.google.mlkit.vision.barcode.common.Barcode
+import com.google.mlkit.vision.codescanner.GmsBarcodeScannerOptions
+import com.google.mlkit.vision.codescanner.GmsBarcodeScanning
 import com.reader.mlkit.databinding.FragmentFirstBinding
 
 class FirstFragment : Fragment() {
@@ -32,7 +36,7 @@ class FirstFragment : Fragment() {
 
     private fun initListeners(){
         binding.qrCodeScan.setOnClickListener {
-
+            scanQrCode()
         }
 
         binding.barCodeScan.setOnClickListener {
@@ -42,6 +46,25 @@ class FirstFragment : Fragment() {
         binding.imageRecognition.setOnClickListener {
 
         }
+    }
+
+    private fun scanQrCode(){
+        val options = GmsBarcodeScannerOptions.Builder()
+            .setBarcodeFormats(Barcode.FORMAT_QR_CODE)
+            .enableAutoZoom()
+            .build()
+        val scanner = GmsBarcodeScanning.getClient(requireContext(), options)
+
+        scanner.startScan()
+            .addOnSuccessListener {
+                Toast.makeText(context, "Success QR: ${it.rawValue}", Toast.LENGTH_SHORT).show()
+            }
+            .addOnCanceledListener {
+                Toast.makeText(context, "Cancelled QR", Toast.LENGTH_SHORT).show()
+            }
+            .addOnFailureListener {
+                Toast.makeText(context, "Failed QR: ${it.message}", Toast.LENGTH_SHORT).show()
+            }
     }
 
     override fun onDestroyView() {
