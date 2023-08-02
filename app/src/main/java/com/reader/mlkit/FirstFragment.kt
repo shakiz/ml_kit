@@ -7,14 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import com.reader.mlkit.databinding.FragmentFirstBinding
 
-/**
- * A simple [Fragment] subclass as the default destination in the navigation.
- */
 class FirstFragment : Fragment() {
 
-private var _binding: FragmentFirstBinding? = null
-    // This property is only valid between onCreateView and
-    // onDestroyView.
+    private var _binding: FragmentFirstBinding? = null
+
+    // This property is only valid between onCreateView and onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -22,8 +19,8 @@ private var _binding: FragmentFirstBinding? = null
         savedInstanceState: Bundle?
     ): View? {
 
-      _binding = FragmentFirstBinding.inflate(inflater, container, false)
-      return binding.root
+        _binding = FragmentFirstBinding.inflate(inflater, container, false)
+        return binding.root
 
     }
 
@@ -31,7 +28,7 @@ private var _binding: FragmentFirstBinding? = null
         super.onViewCreated(view, savedInstanceState)
     }
 
-override fun onDestroyView() {
+    override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
