@@ -43,4 +43,7 @@
         libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
+    <string name="scan_qr_code">Scan QR Code</string>
+    <string name="bar_qr_code">Scan Barcode</string>
+    <string name="image_recongnition">Image Recognition</string>
 </resources>

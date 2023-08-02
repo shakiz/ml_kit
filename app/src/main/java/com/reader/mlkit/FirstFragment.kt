@@ -26,6 +26,22 @@ class FirstFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        initListeners()
+    }
+
+    private fun initListeners(){
+        binding.qrCodeScan.setOnClickListener {
+
+        }
+
+        binding.barCodeScan.setOnClickListener {
+
+        }
+
+        binding.imageRecognition.setOnClickListener {
+
+        }
     }
 
     override fun onDestroyView() {
