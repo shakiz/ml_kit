@@ -113,6 +113,7 @@ class FirstFragment : Fragment() {
     private fun scanBarCode(){
         val options = BarcodeScannerOptions.Builder()
             .setBarcodeFormats(Barcode.FORMAT_ALL_FORMATS)
+            .enableAllPotentialBarcodes()
             .build()
     }
 
